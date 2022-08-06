@@ -13,3 +13,14 @@
  * command-specific namespaces within this header, which can then be used where
  * they are needed.
  */
+
+constexpr int PWM_LEFTDRIVE_ONE_KURGAN  = 2;
+constexpr int PWM_LEFTDRIVE_TWO_KURGAN  = 1;
+constexpr int PWM_RIGHTDRIVE_ONE_KURGAN = 3;
+constexpr int PWM_RIGHTDRIVE_TWO_KURGAN = 4;
+constexpr int PWM_LEFTSHOOT_ONE_KURGAN  = 6;
+constexpr int PWM_LEFTSHOOT_TWO_KURGAN  = 7;
+constexpr int PWM_RIGHTSHOOT_ONE_KURGAN = 5;
+constexpr int PWM_RIGHTSHOOT_TWO_KURGAN = 8;
+constexpr int PWM_LOADER_KURGAN         = 0;
+constexpr int DIO_PHOTOGATE_KURGAN      = 0;

@@ -15,7 +15,7 @@ class ShootSubBase : public frc2::SubsystemBase
 
   virtual void ShootMotor(double speed) {}
 
-  void shoot(double speed);
+  void Shoot(double speed);
 
   void Periodic() override;
 
