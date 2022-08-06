@@ -28,7 +28,7 @@ void LoaderSubBase::Load(double speed, LoadMotors motor)
         LoadIntake(speed);
         break;
     default:
-        
+        Util::SendErrorAndCode("LoaderSubBase::Load switch went to default", 01);
         break;
     }
 }

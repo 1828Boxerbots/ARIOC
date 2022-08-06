@@ -5,6 +5,7 @@
 #pragma once
 
 #include <frc2/command/SubsystemBase.h>
+#include "Util.h"
 
 class LoaderSubBase : public frc2::SubsystemBase {
  public:
