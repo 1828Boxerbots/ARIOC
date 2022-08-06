@@ -14,10 +14,10 @@ class LoaderSubBase : public frc2::SubsystemBase {
   enum LoadMotors {intake, lower, upper, all};
 
   void Load(double speed, LoadMotors motor = LoadMotors::all);
-  virtual void Init();
-  virtual void LoadIntake(double speed);
-  virtual void LoadLower(double speed);
-  virtual void LoadUpper(double speed);
+  virtual void Init() {}
+  virtual void LoadIntake(double speed) {}
+  virtual void LoadLower(double speed) {}
+  virtual void LoadUpper(double speed) {}
 
   /**
    * Will be called periodically whenever the CommandScheduler runs.

@@ -131,7 +131,7 @@ void Util::Log(std::string title, const char *value, std::string subsystemName)
 *  
 *  Allows you to report to the driver station with a custom error code.
 */
-void Util::SendErrorAndCode(char* error, int32_t code)
+void Util::SendErrorAndCode(const char* error, int32_t code)
 {
     wpi::SmallString<128> temp;
     HAL_SendError(1, code, 0, error, "", "", 1);
