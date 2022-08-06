@@ -9,13 +9,12 @@ DriveSubBase::DriveSubBase() = default;
 // This method will be called once per scheduler run
     void DriveSubBase::Periodic() 
 {
-
 }
 
     void DriveSubBase::MoveTank(double left, double right)
 {
-   LeftMotor(left);
-   RightMotor(right);
+ LeftMotor(left);
+ RightMotor(right);
 }
 
     void DriveSubBase::MoveArcade(double x, double y)
