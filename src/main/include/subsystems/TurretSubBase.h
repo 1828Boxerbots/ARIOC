@@ -6,20 +6,20 @@
 
 #include <frc2/command/SubsystemBase.h>
 
-class ExampleSubsystem : public frc2::SubsystemBase {
+class TurretSubBase : public frc2::SubsystemBase {
  public:
-  ExampleSubsystem();
+  TurretSubBase();
+
+  // Positive Speed - Clockwise | Negative Speed - CounterClockwise
+  void MoveTurret(double speed);
+
+  virtual void Init() {}
+  virtual void TurretMotor(double speed) {}
 
   /**
    * Will be called periodically whenever the CommandScheduler runs.
    */
   void Periodic() override;
-
-  /**
-   * Will be called periodically whenever the CommandScheduler runs during
-   * simulation.
-   */
-  void SimulationPeriodic() override;
 
  private:
   // Components (e.g. motor controllers and sensors) should generally be
