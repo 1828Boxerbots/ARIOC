@@ -13,11 +13,11 @@ class DriveSubBase : public frc2::SubsystemBase
 
   void Periodic() override;
 
-  virtual void Init();
+  virtual void Init() {}
 
-  virtual void LeftMotor(double speed);
+  virtual void LeftMotor(double speed) {}
 
-  virtual void RightMotor(double speed);
+  virtual void RightMotor(double speed) {}
 
   void MoveTank(double left, double right);
 
