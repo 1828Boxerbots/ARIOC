@@ -5,27 +5,23 @@
 #pragma once
 
 #include <frc2/command/SubsystemBase.h>
-#include "Util.h"
+#include <frc/motorcontrol/Victor.h>
+#include "Constants.h"
+#include "subsystems/LoaderSubBase.h"
 
-class LoaderSubBase : public frc2::SubsystemBase 
+class LoaderSubRocky : public LoaderSubBase 
 {
  public:
-  LoaderSubBase();
+  LoaderSubRocky();
 
-  enum LoadMotors {intake, lower, upper, all};
-
-  void Load(double speed, LoadMotors motor = LoadMotors::all);
-  virtual void Init() {}
-  virtual void LoadIntake(double speed) {}
-  virtual void LoadLower(double speed) {}
-  virtual void LoadUpper(double speed) {}
-
-  /**
-   * Will be called periodically whenever the CommandScheduler runs.
-   */
   void Periodic() override;
 
+  void Init() override;
+  void LoadIntake(double speed) override;
+
  private:
+  frc::Victor m_loaderMotor{PWM_LOADER_ROCKY};
+
   // Components (e.g. motor controllers and sensors) should generally be
   // declared private and exposed only through public methods.
 };

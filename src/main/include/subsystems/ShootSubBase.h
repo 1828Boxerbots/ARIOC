@@ -11,9 +11,9 @@ class ShootSubBase : public frc2::SubsystemBase
  public:
   ShootSubBase();
   
-  virtual void Init() {}
+  virtual void Init() = 0;
 
-  virtual void ShootMotor(double speed) {}
+  virtual void ShootMotor(double speed) = 0;
 
   void Shoot(double speed);
 

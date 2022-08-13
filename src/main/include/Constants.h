@@ -22,6 +22,25 @@ constexpr int PWM_LOWERINNER_C418 = 4;
 constexpr int PWM_INTAKE_C418 = 5;
 constexpr int PWM_UPPERINNER_C418 = 6;
 
+//Rocky:
+constexpr int PWM_RIGHTDRIVE_ROCKY = 3;
+constexpr int PWM_LEFTDRIVE_ROCKY = 2;
+constexpr int PWM_LOADER_ROCKY = 9;
+constexpr int PWM_SHOOTER_ROCKY = 5;
+constexpr int PWM_TURRET_ROCKY = 4;
+
+//Leland:
+constexpr int PWM_RIGHTDRIVE_LELAND = 0;
+constexpr int PWM_LEFTDRIVE_LELAND = 1;
+constexpr int PWM_ARM_LELAND = 2;
+constexpr int PWM_INTAKE_LELAND = 3;
+constexpr int PWM_LOWERINNER_LELAND = 4;
+constexpr int PWM_UPPERINNER_LELAND = 5;
+constexpr int PWM_SHOOTER_LELAND = 6;
+constexpr int PWM_CLIMB_LELAND = 7;
+constexpr int PWM_CLIMBSERVO_LELAND = 8;
+
+
 // Kurgan
 constexpr int PWM_LEFTDRIVE_ONE_KURGAN  = 2;
 constexpr int PWM_LEFTDRIVE_TWO_KURGAN  = 1;

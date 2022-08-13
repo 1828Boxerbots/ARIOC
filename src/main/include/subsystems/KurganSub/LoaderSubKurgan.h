@@ -9,7 +9,8 @@
 #include "../LoaderSubBase.h"
 #include "Constants.h"
 
-class LoaderSubKurgan : public LoaderSubBase {
+class LoaderSubKurgan : public LoaderSubBase 
+{
  public:
   LoaderSubKurgan();
 

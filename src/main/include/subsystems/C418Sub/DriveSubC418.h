@@ -16,7 +16,7 @@ class DriveSubC418 : public DriveSubBase
 
   void Periodic() override;
 
-  void Init();
+  void Init() override;
   void LeftMotor(double speed) override;
   void RightMotor(double speed) override;
 

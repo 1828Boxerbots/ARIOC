@@ -13,14 +13,19 @@ DriveSubBase::DriveSubBase() = default;
 
     void DriveSubBase::MoveTank(double left, double right)
 {
- LeftMotor(left);
- RightMotor(right);
+    LeftMotor(left);
+    RightMotor(right);
 }
 
     void DriveSubBase::MoveArcade(double x, double y)
 {
- double left = y + x;
- double right = y - x;
+    double left = y + x;
+    double right = y - x;
 
- MoveTank(left, right);
+    MoveTank(left, right);
+}
+
+void DriveSubBase::MoveRC(double up, double right)
+{
+    
 }

@@ -13,9 +13,9 @@ class ClimbSubBase : public frc2::SubsystemBase
 
   void Periodic() override;
 
-  virtual void Init() {}
+  virtual void Init() = 0;
 
-  virtual void ClimbMotor(double speed) {}
+  virtual void ClimbMotor(double speed) = 0;
 
   void Climb(double speed); 
 

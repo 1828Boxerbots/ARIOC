@@ -5,28 +5,28 @@
 #pragma once
 
 #include <frc2/command/SubsystemBase.h>
-#include "../ShootSubBase.h"
+#include "subsystems/LoaderSubBase.h"
 #include "Constants.h"
 #include <frc/motorcontrol/Victor.h>
 
-class ShootSubKurgan : public ShootSubBase 
+class LoaderSubC418 : public LoaderSubBase 
 {
  public:
-  ShootSubKurgan();
+  LoaderSubC418();
 
-  void Init() override;
-  void ShootMotor(double speed) override;
-
-  /**
-   * Will be called periodically whenever the CommandScheduler runs.
-   */
   void Periodic() override;
 
+  void Init();
+  void LoadIntake(double speed) override;
+  void LoadLower(double speed) override;
+  void LoadUpper(double speed) override;
+
  private:
-  frc::Victor m_leftShootOne{PWM_LEFTSHOOT_ONE_KURGAN};
-  frc::Victor m_leftShootTwo{PWM_LEFTSHOOT_TWO_KURGAN};
-  frc::Victor m_rightShootOne{PWM_RIGHTSHOOT_ONE_KURGAN};
-  frc::Victor m_rightShootTwo{PWM_RIGHTSHOOT_TWO_KURGAN};
+  frc::Victor m_intakeMotor{PWM_INTAKE_C418};
+  frc::Victor m_lowerLoaderMotor{PWM_LOWERINNER_C418};
+  frc::Victor m_upperLoaderMotor{PWM_UPPERINNER_C418};
+
+
   // Components (e.g. motor controllers and sensors) should generally be
   // declared private and exposed only through public methods.
 };
