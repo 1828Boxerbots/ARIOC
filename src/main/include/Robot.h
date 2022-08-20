@@ -7,9 +7,11 @@
 #include <frc/TimedRobot.h>
 #include <frc2/command/Command.h>
 
-#include "RobotContainers/RobotContainer.h"
+#include "RobotContainers/RobotContainerBase.h"
+#include "RobotContainers/RobotContainerC418.h"
 
-class Robot : public frc::TimedRobot {
+class Robot : public frc::TimedRobot 
+{
  public:
   void RobotInit() override;
   void RobotPeriodic() override;
@@ -28,5 +30,5 @@ class Robot : public frc::TimedRobot {
   // doesn't have undefined behavior and potentially crash.
   frc2::Command* m_autonomousCommand = nullptr;
 
-  RobotContainer m_container;
+  RobotContainerC418* m_pContainer;
 };
