@@ -9,6 +9,16 @@
 class DriveSubBase : public frc2::SubsystemBase 
 {
  public:
+
+ enum DriveStyles
+ {
+    TANK_STYLE,
+    ARCADE_STYLE,
+    RC_STYLE
+ };
+
+ void SetDrive(DriveStyles style);
+
   DriveSubBase();
 
   void Periodic() override;
@@ -27,5 +37,8 @@ class DriveSubBase : public frc2::SubsystemBase
 
  private:
 
+ protected:
+
+    DriveStyles m_driveStyles = RC_STYLE;
 
 };

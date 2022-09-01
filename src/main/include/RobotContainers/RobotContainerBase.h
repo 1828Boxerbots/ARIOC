@@ -26,13 +26,6 @@ class RobotContainerBase
 
   virtual void SetDrive() = 0;
 
-  enum DriveStyles
-  {
-    TANK_STYLE,
-    ARCADE_STYLE,
-    RC_STYLE
-  };
-
   virtual void SetAButton() {};
   virtual void SetBButton() {};
   virtual void SetXButton() {};

@@ -7,6 +7,11 @@
 DriveSubBase::DriveSubBase() = default;
 
 // This method will be called once per scheduler run
+void DriveSubBase::Init()
+{
+    
+}
+
     void DriveSubBase::Periodic() 
 {
 }
@@ -27,5 +32,10 @@ DriveSubBase::DriveSubBase() = default;
 
 void DriveSubBase::MoveRC(double up, double right)
 {
-    
+  MoveArcade(right, up);
 }
+  
+  void DriveSubBase::SetDrive(DriveStyles style)
+  {
+      m_driveStyles = style;
+  }
