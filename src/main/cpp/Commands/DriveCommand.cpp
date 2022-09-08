@@ -4,30 +4,63 @@
 
 #include "Commands/DriveCommand.h"
 
-DriveCommand::DriveCommand(DriveSubBase *pDriveBase, frc::XboxController *pController, DriveSubBase::DriveStyles style) 
+DriveCommand::DriveCommand(DriveSubBase *pDriveSub, frc::XboxController *pController, DriveSubBase::DriveStyles style) 
 {
-  m_pDriveBase = pDriveBase;
+  m_pDriveSub = pDriveSub;
   m_pController = pController;
   m_style = style;
 
   // Use addRequirements() here to declare subsystem dependencies.
 
-  AddRequirements(pDriveBase);
+  AddRequirements(pDriveSub);
 }
 
 // Called when the command is initially scheduled.
 void DriveCommand::Initialize() 
 {
-  m_pDriveBase->Init();
-  m_pDriveBase->SetDrive(m_style);
+  m_pDriveSub->Init();
+  m_pDriveSub->SetDrive(m_style);
 }
 
 // Called repeatedly when this Command is scheduled to run
 void DriveCommand::Execute() 
 {
+  m_left = m_pController->GetLeftY();
+  m_right = m_pController->GetRightY();
+  double x = m_pController->GetLeftX();
+  double y = m_pController->GetLeftY();
+   
+  if (m_pDriveSub == nullptr or m_pController == nullptr)
+  {
+   return;
+  }
+
+
+  
   switch (m_style)
   {
     case DriveSubBase::DriveStyles::TANK_STYLE:
+
+    m_pDriveSub->MoveTank(-m_left, -m_right); 
+
+    break;
+
+    case DriveSubBase::DriveStyles::ARCADE_STYLE:
+
+    m_pDriveSub->MoveArcade(x,-y);
+
+    break;
+
+    case DriveSubBase::DriveStyles::RC_STYLE:
+
+    m_pDriveSub->MoveRC(x, m_right);
+
+    break;
+
+    default:
+
+    m_pDriveSub->MoveTank(0.0, 0.0);
+
     break;
   }
 }

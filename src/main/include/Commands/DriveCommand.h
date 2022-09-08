@@ -20,7 +20,7 @@
 class DriveCommand : public frc2::CommandHelper<frc2::CommandBase, DriveCommand> 
 {
  public:
-  DriveCommand(DriveSubBase *pDriveBase, frc::XboxController *pController, DriveSubBase::DriveStyles style);
+  DriveCommand(DriveSubBase *pDriveSub, frc::XboxController *pController, DriveSubBase::DriveStyles style);
 
   void Initialize() override;
 
@@ -31,7 +31,7 @@ class DriveCommand : public frc2::CommandHelper<frc2::CommandBase, DriveCommand>
   bool IsFinished() override;
 
     private:
-    DriveSubBase* m_pDriveBase;
+    DriveSubBase* m_pDriveSub;
     frc::XboxController* m_pController;
     DriveSubBase::DriveStyles m_style;
 

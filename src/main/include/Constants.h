@@ -3,6 +3,7 @@
 // the WPILib BSD license file in the root directory of this project.
 
 #pragma once
+#include "RobotContainers/RobotContainerBase.h"
 
 /**
  * The Constants header provides a convenient place for teams to hold robot-wide
@@ -14,6 +15,21 @@
  * they are needed.
  */
 
+#define USE_C418 = 1;
+//#define USE_KURGEN = 2;
+
+
+/*int m_robot = 1;
+
+switch (m_robot)
+{
+    case 1:
+    m_pContainer = new C418Container();
+
+    case 2:
+    m_pContainer = new KurganContainer();
+}
+*/
 //C418:
 constexpr int PWM_RIGHTDRIVE_C418 = 0;
 constexpr int PWM_LEFTDRIVE_C418 = 1;
