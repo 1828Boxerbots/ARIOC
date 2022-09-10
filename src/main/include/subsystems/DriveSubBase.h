@@ -12,9 +12,9 @@ class DriveSubBase : public frc2::SubsystemBase
 
  enum DriveStyles
  {
-    TANK_STYLE,
-    ARCADE_STYLE,
-    RC_STYLE
+   TANK_STYLE,
+   ARCADE_STYLE,
+   RC_STYLE
  };
 
  void SetDrive(DriveStyles style);
@@ -33,12 +33,10 @@ class DriveSubBase : public frc2::SubsystemBase
 
   void MoveArcade(double x, double y);
 
-  void MoveRC (double up, double right);
-
  private:
 
  protected:
 
-    DriveStyles m_driveStyles = RC_STYLE;
+   DriveStyles m_driveStyles = RC_STYLE;
 
 };

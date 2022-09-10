@@ -20,11 +20,12 @@
 class DriveCommand : public frc2::CommandHelper<frc2::CommandBase, DriveCommand> 
 {
  public:
-  DriveCommand(DriveSubBase *pDriveSub, frc::XboxController *pController, DriveSubBase::DriveStyles style);
+  DriveCommand(DriveSubBase *pDriveSub, frc::XboxController *pController, DriveSubBase::DriveStyles style, double scale = 1.0, double deadZone = 0.1);
 
   void Initialize() override;
 
   void Execute() override;
+  double CheckDeadZone(double stickInput);
 
   void End(bool interrupted) override;
 
@@ -36,8 +37,11 @@ class DriveCommand : public frc2::CommandHelper<frc2::CommandBase, DriveCommand>
     DriveSubBase::DriveStyles m_style;
 
     bool m_IsFinished = false;
-    double m_scale = 0.8;
-    float m_deadZoneRange = 0.1;
-    double m_left = 0.0;
-    double m_right = 0.0;
+    double m_deadZone = 0.1;
+    double m_scale = 1.0;
+
+    double m_leftY = 0.0;
+    double m_rightY = 0.0;
+    double m_leftX = 0.0;
+    double m_rightX = 0.0;
 };

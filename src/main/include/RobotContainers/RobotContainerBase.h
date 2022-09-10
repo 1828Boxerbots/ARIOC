@@ -7,6 +7,7 @@
 #include <frc/XboxController.h>
 #include "Constants.h"
 #include "subsystems/DriveSubBase.h"
+#include "commands/DriveCommand.h"
 
 /**
  * This class is where the bulk of the robot should be declared.  Since
@@ -24,8 +25,6 @@ class RobotContainerBase
 
   virtual void Init() = 0;
 
-  virtual void SetDrive() = 0;
-
   virtual void SetAButton() {};
   virtual void SetBButton() {};
   virtual void SetXButton() {};
@@ -37,12 +36,16 @@ class RobotContainerBase
   virtual void SetLeftTrigger() {};
   virtual void SetRightTrigger() {};
 
-
-  protected:
   frc::XboxController m_controllerOne {0};
   frc::XboxController m_controllerTwo {1};
 
+  // Subsystems
+  DriveSubBase *m_pDriveSub = nullptr;
+
+  // Commands all Robots have 
+  //DriveCommand *m_pDriveCMD = nullptr;
+
  private:
 
-  void ConfigureButtonBindings();
+  virtual void ConfigureButtonBindings();
 };

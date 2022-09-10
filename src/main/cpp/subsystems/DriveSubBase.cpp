@@ -6,23 +6,15 @@
 
 DriveSubBase::DriveSubBase() = default;
 
-// This method will be called once per scheduler run
-void DriveSubBase::Init()
-{
-    
-}
+void DriveSubBase::Periodic() { }
 
-    void DriveSubBase::Periodic() 
-{
-}
-
-    void DriveSubBase::MoveTank(double left, double right)
+void DriveSubBase::MoveTank(double left, double right)
 {
     LeftMotor(left);
     RightMotor(right);
 }
 
-    void DriveSubBase::MoveArcade(double x, double y)
+void DriveSubBase::MoveArcade(double x, double y)
 {
     double left = y + x;
     double right = y - x;
@@ -30,12 +22,7 @@ void DriveSubBase::Init()
     MoveTank(left, right);
 }
 
-void DriveSubBase::MoveRC(double up, double right)
+void DriveSubBase::SetDrive(DriveStyles style)
 {
-  MoveArcade(right, up);
+    m_driveStyles = style;
 }
-  
-  void DriveSubBase::SetDrive(DriveStyles style)
-  {
-      m_driveStyles = style;
-  }

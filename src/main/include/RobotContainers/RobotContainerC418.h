@@ -15,12 +15,10 @@ class RobotContainerC418 : public RobotContainerBase
 
    void Init() override;
 
-   void SetDrive() override;
-
    frc2::Command* GetAutonomousCommand() override;
 
   private:
-  DriveCommand *m_pDrive = nullptr;
-  DriveSubC418 *m_pSubC418 = nullptr;
-  
+  void ConfigureButtonBindings() override;
+
+  DriveCommand *m_pDriveCMD = nullptr;
 };
