@@ -6,8 +6,8 @@
 
 #include <frc2/command/CommandBase.h>
 #include <frc2/command/CommandHelper.h>
-#include "subsystems/DriveSubBase.h"
 #include <frc/XboxController.h>
+#include "subsystems/LoaderSubBase.h"
 
 /**
  * An example command.
@@ -16,31 +16,28 @@
  * directly; this is crucially important, or else the decorator functions in
  * Command will *not* work!
  */
-class DriveCommand : public frc2::CommandHelper<frc2::CommandBase, DriveCommand> 
+class LoadCommand : public frc2::CommandHelper<frc2::CommandBase, LoadCommand>
 {
  public:
-  DriveCommand(DriveSubBase *pDriveSub, frc::XboxController *pController, DriveSubBase::DriveStyles style, double scale = 1.0, double deadZone = 0.1);
+  LoadCommand(LoaderSubBase *pLoader, frc::XboxController *pController, double speed = 1.0,
+              LoaderSubBase::LoadMotors motor = LoaderSubBase::LoadMotors::all);
 
   void Initialize() override;
 
   void Execute() override;
-  double CheckDeadZone(double stickInput);
 
   void End(bool interrupted) override;
 
   bool IsFinished() override;
 
-    private:
-    DriveSubBase* m_pDriveSub;
-    frc::XboxController* m_pController;
-    DriveSubBase::DriveStyles m_style;
+  private:
+   bool m_isFinished = false;
 
-    bool m_IsFinished = false;
-    double m_deadZone = 0.1;
-    double m_scale = 1.0;
+   LoaderSubBase *m_pLoader = nullptr;
+   frc::XboxController *m_pController = nullptr;
+   double m_speed;
+   LoaderSubBase::LoadMotors m_motor;   
 
-    double m_leftY = 0.0;
-    double m_rightY = 0.0;
-    double m_leftX = 0.0;
-    double m_rightX = 0.0;
+   int heart = 0;
 };
+

@@ -5,8 +5,11 @@
 #pragma once
 #include <frc2/command/Command.h>
 #include <frc/XboxController.h>
+#include <frc2/command/button/Button.h>
 #include "Constants.h"
 #include "subsystems/DriveSubBase.h"
+#include "subsystems/LoaderSubBase.h"
+#include "commands/LoadCommand.h"
 #include "commands/DriveCommand.h"
 
 /**
@@ -41,11 +44,17 @@ class RobotContainerBase
 
   // Subsystems
   DriveSubBase *m_pDriveSub = nullptr;
+  LoaderSubBase *m_pLoadSub = nullptr;
 
   // Commands all Robots have 
-  //DriveCommand *m_pDriveCMD = nullptr;
+  DriveCommand *m_pDriveCMD = nullptr;
+  LoadCommand *m_pLoadAllCMD = nullptr;
 
- private:
-
+ protected:
   virtual void ConfigureButtonBindings();
+
+  frc2::Button m_aButton {[this] {return m_controllerOne.GetAButton();}};
+  frc2::Button m_bButton {[this] {return m_controllerOne.GetBButton();}};
+  frc2::Button m_xButton {[this] {return m_controllerOne.GetXButton();}};
+  frc2::Button m_yButton {[this] {return m_controllerOne.GetYButton();}};
 };

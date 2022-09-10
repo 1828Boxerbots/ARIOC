@@ -4,21 +4,22 @@
 
 #pragma once
 #include "RobotContainers/RobotContainerBase.h"
-#include "Commands/DriveCommand.h"
 #include "subsystems/C418Sub/DriveSubC418.h"
-#include "subsystems/DriveSubBase.h"
+#include "subsystems/C418Sub/LoaderSubC418.h"
+#include "commands/LoadCommand.h"
+#include "commands/DriveCommand.h"
 
 class RobotContainerC418 : public RobotContainerBase
 {
  public:
   RobotContainerC418();
 
-   void Init() override;
+  void Init() override;
 
-   frc2::Command* GetAutonomousCommand() override;
+  frc2::Command* GetAutonomousCommand() override;
+
+  void SetXButton() override;
 
   private:
   void ConfigureButtonBindings() override;
-
-  DriveCommand *m_pDriveCMD = nullptr;
 };
