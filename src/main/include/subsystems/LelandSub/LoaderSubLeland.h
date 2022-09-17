@@ -9,22 +9,22 @@
 #include "Constants.h"
 #include <frc/motorcontrol/Victor.h>
 
-class LoaderSubC418 : public LoaderSubBase 
+class LoaderSubLeland : public LoaderSubBase
 {
  public:
-  LoaderSubC418();
+  LoaderSubLeland();
 
   void Periodic() override;
 
   void Init();
   void LoadIntake(double speed) override;
   void LoadLower(double speed) override;
-  void LoadUpper(double speed) override;
+  //void LoadUpper(double speed) override;
 
  private:
-  frc::Victor m_intakeMotor{PWM_INTAKE_C418};
-  frc::Victor m_lowerLoaderMotor{PWM_LOWERINNER_C418};
-  frc::Victor m_upperLoaderMotor{PWM_UPPERINNER_C418};
+  frc::Victor m_intakeMotor{PWM_INTAKE_LELAND};
+  frc::Victor m_lowerLoaderMotor{PWM_LOWERINNER_LELAND};
+  //frc::Victor m_upperLoaderMotor{PWM_UPPERINNER_LELAND};
 
   // Components (e.g. motor controllers and sensors) should generally be
   // declared private and exposed only through public methods.

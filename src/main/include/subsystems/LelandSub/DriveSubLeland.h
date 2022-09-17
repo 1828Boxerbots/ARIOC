@@ -9,14 +9,20 @@
 #include "Constants.h"
 #include "subsystems/DriveSubBase.h"
 
-class DriveSubLeland : public frc2::SubsystemBase 
+class DriveSubLeland : public DriveSubBase 
 {
  public:
   DriveSubLeland();
 
   void Periodic() override;
 
+  void Init() override;
+  void LeftMotor(double speed) override;
+  void RightMotor(double speed) override;
+
  private:
+  frc::Victor m_rightMotor {PWM_RIGHTDRIVE_LELAND};
+  frc::Victor m_leftMotor {PWM_LEFTDRIVE_LELAND};
   // Components (e.g. motor controllers and sensors) should generally be
   // declared private and exposed only through public methods.
 };

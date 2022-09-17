@@ -29,5 +29,3 @@ void DriveSubC418::RightMotor(double speed)
 {
     m_rightMotor.Set(speed);
 }
-
-

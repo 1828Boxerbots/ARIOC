@@ -8,3 +8,22 @@ DriveSubLeland::DriveSubLeland() = default;
 
 // This method will be called once per scheduler run
 void DriveSubLeland::Periodic() {}
+
+void DriveSubLeland::Init()
+{
+
+    m_rightMotor.SetInverted (true);
+    m_leftMotor.SetInverted (false);
+    LeftMotor(0);
+    RightMotor(0);
+}
+
+void DriveSubLeland::LeftMotor(double speed)
+{
+    m_leftMotor.Set(speed);
+}
+
+void DriveSubLeland::RightMotor(double speed)
+{
+    m_rightMotor.Set(speed);
+}
