@@ -13,7 +13,9 @@ void ShootSubC418::Periodic()
 
 void ShootSubC418::Init()
 {
-    m_shooterMotor.Set(0);
+    m_shooterMotor.SetInverted(true);
+
+    ShootMotor(0);
 }
 
 void ShootSubC418::ShootMotor(double speed)

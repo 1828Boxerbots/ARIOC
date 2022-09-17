@@ -16,8 +16,8 @@ void DriveSubC418::Init()
 
     m_rightMotor.SetInverted (true);
     m_leftMotor.SetInverted (false);
-    m_rightMotor.Set(0);
-    m_leftMotor.Set(0);
+    LeftMotor(0);
+    RightMotor(0);
 }
 
 void DriveSubC418::LeftMotor(double speed)

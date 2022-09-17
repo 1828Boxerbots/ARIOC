@@ -11,7 +11,7 @@ ShootSubBase::ShootSubBase() = default;
 {
 }
 
-    void ShootSubBase::Shoot(double speed)
+void ShootSubBase::Shoot(double speed)
 {
  ShootMotor(speed);
 }

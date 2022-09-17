@@ -12,9 +12,12 @@ void LoaderSubC418::Periodic()
 }
 
 void LoaderSubC418::Init()
-{
-    m_upperLoaderMotor.SetInverted(false);
+{   
     m_lowerLoaderMotor.SetInverted(true);
+
+    LoadIntake(0);
+    LoadLower(0);
+    LoadUpper(0);
 }
 
 void LoaderSubC418::LoadIntake(double speed)

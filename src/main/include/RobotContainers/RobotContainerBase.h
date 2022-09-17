@@ -9,8 +9,10 @@
 #include "Constants.h"
 #include "subsystems/DriveSubBase.h"
 #include "subsystems/LoaderSubBase.h"
+#include "subsystems/ShootSubBase.h"
 #include "commands/LoadCommand.h"
 #include "commands/DriveCommand.h"
+#include "commands/ShootCommand.h"
 
 /**
  * This class is where the bulk of the robot should be declared.  Since
@@ -45,10 +47,15 @@ class RobotContainerBase
   // Subsystems
   DriveSubBase *m_pDriveSub = nullptr;
   LoaderSubBase *m_pLoadSub = nullptr;
+  ShootSubBase *m_pShootSub = nullptr;
 
   // Commands all Robots have 
   DriveCommand *m_pDriveCMD = nullptr;
   LoadCommand *m_pLoadAllCMD = nullptr;
+  LoadCommand *m_pLoadIntakeCMD = nullptr;
+  LoadCommand *m_pLoadLowerCMD = nullptr;
+  LoadCommand *m_pLoadUpperCMD = nullptr;
+  ShootCommand *m_pShootCMD = nullptr;
 
  protected:
   virtual void ConfigureButtonBindings();
@@ -57,4 +64,6 @@ class RobotContainerBase
   frc2::Button m_bButton {[this] {return m_controllerOne.GetBButton();}};
   frc2::Button m_xButton {[this] {return m_controllerOne.GetXButton();}};
   frc2::Button m_yButton {[this] {return m_controllerOne.GetYButton();}};
+
+  frc2::Button m_rightTrigger {[this] {return m_controllerOne.GetRightTriggerAxis();}};
 };
