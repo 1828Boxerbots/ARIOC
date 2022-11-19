@@ -10,6 +10,8 @@
 #include "RobotContainers/RobotContainerBase.h"
 #include "RobotContainers/RobotContainerC418.h"
 #include "RobotContainers/RobotContainerLeland.h"
+#include "RobotContainers/RobotContainerKurgan.h"
+#include "RobotContainers/RobotContainerLipALoop.h"
 
 class Robot : public frc::TimedRobot 
 {
@@ -31,5 +33,5 @@ class Robot : public frc::TimedRobot
   // doesn't have undefined behavior and potentially crash.
   frc2::Command* m_autonomousCommand = nullptr;
 
-  RobotContainerBase *m_pContainer = new RobotContainerLeland;
+  RobotContainerBase *m_pContainer = new RobotContainerLipALoop;
 };

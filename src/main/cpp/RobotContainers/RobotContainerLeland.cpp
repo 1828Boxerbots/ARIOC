@@ -68,8 +68,3 @@ void RobotContainerLeland::SetRightTrigger()
 {
     m_rightTrigger.WhenHeld(m_pShootCMD);
 }
-
-frc2::Command* RobotContainerLeland::GetAutonomousCommand()
-{
-    return nullptr;
-}

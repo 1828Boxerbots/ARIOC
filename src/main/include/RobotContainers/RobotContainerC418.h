@@ -15,8 +15,6 @@ class RobotContainerC418 : public RobotContainerBase
 
   void Init() override;
 
-  frc2::Command* GetAutonomousCommand() override;
-
   void SetAButton() override;
   void SetBButton() override;
   void SetXButton() override;

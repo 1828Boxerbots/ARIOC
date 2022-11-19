@@ -5,7 +5,8 @@
 #include "Commands/DriveCommand.h"
 #include "Util.h"
 
-DriveCommand::DriveCommand(DriveSubBase *pDriveSub, frc::XboxController *pController, DriveSubBase::DriveStyles style, double scale, double deadZone) 
+DriveCommand::DriveCommand(DriveSubBase *pDriveSub, frc::XboxController *pController, DriveSubBase::DriveStyles style,
+                            double scale, double deadZone) 
 {
   // Required Parameters
   m_pDriveSub = pDriveSub;
@@ -37,25 +38,32 @@ void DriveCommand::Execute()
   }
 
   // Reading Stick values and checking deadzone of those valus before setting a scale
-  m_leftY = CheckDeadZone(m_pController->GetLeftY()) * m_scale;
-  m_rightY = CheckDeadZone(m_pController->GetRightY()) * m_scale;
+  m_leftY = CheckDeadZone(-m_pController->GetLeftY()) * m_scale;
+  m_rightY = CheckDeadZone(-m_pController->GetRightY()) * m_scale;
   m_leftX = CheckDeadZone(m_pController->GetLeftX()) * m_scale;
   m_rightX = CheckDeadZone(m_pController->GetRightX()) * m_scale; 
   
   Util::Log("LeftY", m_leftY);
 
+  double moveAngle = atan2(m_leftY, m_leftX);
+  double movePower = hypot(m_leftX, m_leftY);
+
   switch (m_style)
   {
     case DriveSubBase::DriveStyles::TANK_STYLE:
-      m_pDriveSub->MoveTank(-m_leftY, -m_rightY); 
+      m_pDriveSub->MoveTank(m_leftY, m_rightY); 
     break;
 
     case DriveSubBase::DriveStyles::ARCADE_STYLE:
-      m_pDriveSub->MoveArcade(m_leftX, -m_leftY);
+      m_pDriveSub->MoveArcade(m_leftX, m_leftY);
     break;
 
     case DriveSubBase::DriveStyles::RC_STYLE:
-      m_pDriveSub->MoveArcade(m_rightX, -m_leftY);
+      m_pDriveSub->MoveArcade(m_rightX, m_leftY);
+    break;
+
+    case DriveSubBase::DriveStyles::MECANUM_STYLE:
+      m_pDriveSub->MoveMecanum(moveAngle, m_rightX, movePower);
     break;
 
     default:

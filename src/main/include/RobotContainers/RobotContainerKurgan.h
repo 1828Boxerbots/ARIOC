@@ -3,20 +3,21 @@
 // the WPILib BSD license file in the root directory of this project.
 
 #pragma once
-#include "RobotContainers/RobotContainerBase.h"
-#include "subsystems/LelandSub/DriveSubLeland.h"
-#include "subsystems/LelandSub/LoaderSubLeland.h"
-#include "subsystems/LelandSub/ShootSubLeland.h"
+#include "RobotContainerBase.h"
 
-class RobotContainerLeland : public RobotContainerBase
+#include "subsystems/KurganSub/DriveSubKurgan.h"
+#include "subsystems/KurganSub/LoaderSubKurgan.h"
+#include "subsystems/KurganSub/ShootSubKurgan.h"
+
+#include "Commands/LoadCommand.h"
+
+class RobotContainerKurgan : public RobotContainerBase
 {
  public:
-  RobotContainerLeland();
+  RobotContainerKurgan();
 
   void Init() override;
 
-  void SetAButton() override;
-  void SetBButton() override;
   void SetXButton() override;
   void SetYButton() override;
   
@@ -24,4 +25,6 @@ class RobotContainerLeland : public RobotContainerBase
 
  private:
   void ConfigureButtonBindings() override;
+
+  LoadCommand *m_pEjectCMD = nullptr;
 };

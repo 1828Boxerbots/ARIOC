@@ -22,6 +22,50 @@ void DriveSubBase::MoveArcade(double x, double y)
     MoveTank(left, right);
 }
 
+void DriveSubBase::MoveMecanum(double angle, double pivot, double power)
+{
+    double topLeft;
+    double topRight;
+    double bottomLeft;
+    double bottomRight;
+
+    double moveSin = sin(angle - M_PI/4);
+    double moveCos = cos(angle - M_PI/4);
+    double moveMax = units::math::max(fabs(moveSin), fabs(moveCos));
+    // if(fabs(moveSin) > fabs(moveCos))
+    // {
+    //     moveMax = fabs(moveSin);
+    // }
+    // else
+    // {
+    //     moveMax = fabs(moveCos);
+    // }
+
+    // Set Power
+    topLeft = power * moveCos/moveMax + pivot;
+    topRight = power * moveSin/moveMax - pivot;
+    bottomLeft = power * moveSin/moveMax + pivot;
+    bottomRight = power * moveCos/moveMax - pivot;
+
+    Util::Log("topLeft", topLeft);
+    Util::Log("bottomRight", bottomRight);
+    Util::Log("topRight", topRight);
+
+    // Limiting Power so it does not go above one
+    // if((power + fabs(pivot)) > 1)
+    // {
+    //     topLeft /= power + pivot;
+    //     topRight /= power + pivot;
+    //     bottomLeft /= power + pivot;
+    //     bottomRight /= power + pivot;
+    // }
+
+    TopLeftMotor(topLeft);
+    TopRightMotor(topRight);
+    BottomLeftMotor(bottomLeft);
+    BottomRightMotor(bottomRight);
+}
+
 void DriveSubBase::SetDrive(DriveStyles style)
 {
     m_driveStyles = style;

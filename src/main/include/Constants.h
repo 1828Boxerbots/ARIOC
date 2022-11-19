@@ -56,7 +56,6 @@ constexpr int PWM_SHOOTER_LELAND = 6;
 constexpr int PWM_CLIMB_LELAND = 7;
 constexpr int PWM_CLIMBSERVO_LELAND = 8;
 
-
 // Kurgan
 constexpr int PWM_LEFTDRIVE_ONE_KURGAN  = 2;
 constexpr int PWM_LEFTDRIVE_TWO_KURGAN  = 1;
@@ -68,3 +67,9 @@ constexpr int PWM_RIGHTSHOOT_ONE_KURGAN = 5;
 constexpr int PWM_RIGHTSHOOT_TWO_KURGAN = 8;
 constexpr int PWM_LOADER_KURGAN         = 0;
 constexpr int DIO_PHOTOGATE_KURGAN      = 0;
+
+// LipALoop
+constexpr int PWM_TOPLEFTDRIVE_LIPALOOP     = 1;
+constexpr int PWM_TOPRIGHTDRIVE_LIPALOOP    = 0;
+constexpr int PWM_BOTTOMLEFTDRIVE_LIPALOOP  = 4;
+constexpr int PWM_BOTTOMRIGHTDRIVE_LIPALOOP = 3;

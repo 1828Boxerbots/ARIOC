@@ -35,7 +35,7 @@ void Robot::DisabledPeriodic() {}
  * RobotContainer} class.
  */
 void Robot::AutonomousInit() {
-  m_autonomousCommand = m_pContainer->GetAutonomousCommand();
+  m_autonomousCommand = nullptr;
 
   if (m_autonomousCommand != nullptr) {
     m_autonomousCommand->Schedule();

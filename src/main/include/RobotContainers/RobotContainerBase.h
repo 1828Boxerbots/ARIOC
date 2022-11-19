@@ -26,8 +26,6 @@ class RobotContainerBase
  public:
   RobotContainerBase();
 
-  virtual frc2::Command* GetAutonomousCommand();
-
   virtual void Init() = 0;
 
   virtual void SetAButton() {};

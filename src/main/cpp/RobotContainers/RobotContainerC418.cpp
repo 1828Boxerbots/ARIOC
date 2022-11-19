@@ -68,8 +68,3 @@ void RobotContainerC418::SetRightTrigger()
 {
     m_rightTrigger.WhenHeld(m_pShootCMD);
 }
-
-frc2::Command* RobotContainerC418::GetAutonomousCommand()
-{
-    return nullptr;
-}

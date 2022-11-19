@@ -5,6 +5,8 @@
 #pragma once
 
 #include <frc2/command/SubsystemBase.h>
+#include <units/math.h>
+#include "Util.h"
 
 class DriveSubBase : public frc2::SubsystemBase 
 {
@@ -14,7 +16,8 @@ class DriveSubBase : public frc2::SubsystemBase
  {
    TANK_STYLE,
    ARCADE_STYLE,
-   RC_STYLE
+   RC_STYLE,
+   MECANUM_STYLE
  };
 
  void SetDrive(DriveStyles style);
@@ -25,13 +28,20 @@ class DriveSubBase : public frc2::SubsystemBase
 
   virtual void Init() = 0;
 
-  virtual void LeftMotor(double speed) = 0;
+  // Normal Motors
+  virtual void LeftMotor(double speed) {}
+  virtual void RightMotor(double speed) {}
 
-  virtual void RightMotor(double speed) = 0;
+  // Mecanum Motors
+  virtual void TopLeftMotor(double speed) {}
+  virtual void TopRightMotor(double speed) {}
+  virtual void BottomLeftMotor(double speed) {}
+  virtual void BottomRightMotor(double speed) {}
 
   void MoveTank(double left, double right);
-
   void MoveArcade(double x, double y);
+
+  void MoveMecanum(double angle, double pivot, double power);
 
  private:
 
