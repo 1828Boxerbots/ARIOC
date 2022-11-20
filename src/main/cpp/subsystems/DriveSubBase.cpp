@@ -8,6 +8,11 @@ DriveSubBase::DriveSubBase() = default;
 
 void DriveSubBase::Periodic() { }
 
+double DriveSubBase::GetRobotAngle()
+{
+    return GetIMUAngle();
+}
+
 void DriveSubBase::MoveTank(double left, double right)
 {
     LeftMotor(left);

@@ -45,8 +45,8 @@ void DriveCommand::Execute()
   
   Util::Log("LeftY", m_leftY);
 
-  double moveAngle = atan2(m_leftY, m_leftX);
-  double movePower = hypot(m_leftX, m_leftY);
+  double moveAngle;
+  double movePower;
 
   switch (m_style)
   {
@@ -63,6 +63,14 @@ void DriveCommand::Execute()
     break;
 
     case DriveSubBase::DriveStyles::MECANUM_STYLE:
+      moveAngle = atan2(m_leftY, m_leftX);
+      movePower = hypot(m_leftX, m_leftY);
+      m_pDriveSub->MoveMecanum(moveAngle, m_rightX, movePower);
+    break;
+
+    case DriveSubBase::DriveStyles::FIELD_MECANUM_STYLE:
+      moveAngle = atan2(m_leftY, m_leftX) + (m_pDriveSub->GetRobotAngle() * (M_PI/180));
+      movePower = hypot(m_leftX, m_leftY);
       m_pDriveSub->MoveMecanum(moveAngle, m_rightX, movePower);
     break;
 

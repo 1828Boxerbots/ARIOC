@@ -36,3 +36,9 @@ void DriveSubLipALoop::BottomRightMotor(double speed)
 {
     m_bottomRight.Set(speed);
 }
+
+double DriveSubLipALoop::GetIMUAngle()
+{
+    Util::Log("IMU Angle", (double)m_imu.GetAngle());
+    return (double)m_imu.GetAngle();
+}

@@ -7,7 +7,9 @@
 #include <frc2/command/SubsystemBase.h>
 #include "subsystems/DriveSubBase.h"
 #include "constants.h"
+#include "Util.h"
 #include <frc/motorcontrol/Victor.h>
+#include <frc/ADIS16448_IMU.h>
 
 class DriveSubLipALoop : public DriveSubBase
 {
@@ -27,11 +29,15 @@ class DriveSubLipALoop : public DriveSubBase
   void BottomLeftMotor(double speed) override;
   void BottomRightMotor(double speed) override;
 
+  double GetIMUAngle() override;
+
  private:
   frc::Victor m_topLeft     {PWM_TOPLEFTDRIVE_LIPALOOP};
   frc::Victor m_topRight    {PWM_TOPRIGHTDRIVE_LIPALOOP};
   frc::Victor m_bottomLeft  {PWM_BOTTOMLEFTDRIVE_LIPALOOP};
   frc::Victor m_bottomRight {PWM_BOTTOMRIGHTDRIVE_LIPALOOP};
+
+  frc::ADIS16448_IMU m_imu;
   // Components (e.g. motor controllers and sensors) should generally be
   // declared private and exposed only through public methods.
 };

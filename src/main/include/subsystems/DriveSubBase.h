@@ -17,7 +17,8 @@ class DriveSubBase : public frc2::SubsystemBase
    TANK_STYLE,
    ARCADE_STYLE,
    RC_STYLE,
-   MECANUM_STYLE
+   MECANUM_STYLE,
+   FIELD_MECANUM_STYLE
  };
 
  void SetDrive(DriveStyles style);
@@ -27,6 +28,12 @@ class DriveSubBase : public frc2::SubsystemBase
   void Periodic() override;
 
   virtual void Init() = 0;
+
+  void MoveTank(double left, double right);
+  void MoveArcade(double x, double y);
+  void MoveMecanum(double angle, double pivot, double power);
+
+  double GetRobotAngle();
 
   // Normal Motors
   virtual void LeftMotor(double speed) {}
@@ -38,15 +45,13 @@ class DriveSubBase : public frc2::SubsystemBase
   virtual void BottomLeftMotor(double speed) {}
   virtual void BottomRightMotor(double speed) {}
 
-  void MoveTank(double left, double right);
-  void MoveArcade(double x, double y);
-
-  void MoveMecanum(double angle, double pivot, double power);
+  // IMU
+  virtual double GetIMUAngle() { return 0; }
 
  private:
 
  protected:
 
-   DriveStyles m_driveStyles = RC_STYLE;
+  DriveStyles m_driveStyles = RC_STYLE;
 
 };
