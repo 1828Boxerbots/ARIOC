@@ -23,10 +23,10 @@ class ShootSubKurgan : public ShootSubBase
   void Periodic() override;
 
  private:
-  frc::Victor m_leftShootOne{PWM_LEFTSHOOT_ONE_KURGAN};
-  frc::Victor m_leftShootTwo{PWM_LEFTSHOOT_TWO_KURGAN};
-  frc::Victor m_rightShootOne{PWM_RIGHTSHOOT_ONE_KURGAN};
-  frc::Victor m_rightShootTwo{PWM_RIGHTSHOOT_TWO_KURGAN};
+  frc::Victor m_oneLeft{PWM_LEFTSHOOT_ONE_KURGAN};
+  frc::Victor m_threeLeft{PWM_LEFTSHOOT_THREEE_KURGAN};
+  frc::Victor m_twoRight{PWM_RIGHTSHOOT_TWO_KURGAN};
+  frc::Victor m_fourRight{PWM_RIGHTSHOOT_FOUR_KURGAN};
   // Components (e.g. motor controllers and sensors) should generally be
   // declared private and exposed only through public methods.
 };
