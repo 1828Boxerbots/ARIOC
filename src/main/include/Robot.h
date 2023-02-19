@@ -12,6 +12,7 @@
 #include "RobotContainers/RobotContainerLeland.h"
 #include "RobotContainers/RobotContainerKurgan.h"
 #include "RobotContainers/RobotContainerLipALoop.h"
+#include "RobotContainers/RobotContainerRocky.h"
 
 class Robot : public frc::TimedRobot 
 {
@@ -33,5 +34,12 @@ class Robot : public frc::TimedRobot
   // doesn't have undefined behavior and potentially crash.
   frc2::Command* m_autonomousCommand = nullptr;
 
-  RobotContainerBase *m_pContainer = new RobotContainerKurgan;
+  // ************************************************************
+  // NOTE: uncomment correct line for robot you want to target.
+  // ************************************************************
+  // RobotContainerBase *m_pContainer = new RobotContainerC418;
+  // RobotContainerBase *m_pContainer = new RobotContainerLeland;
+  // RobotContainerBase *m_pContainer = new RobotContainerKurgan;
+  // RobotContainerBase *m_pContainer = new RobotContainerLipALoop;
+  RobotContainerBase *m_pContainer = new RobotContainerRocky;
 };

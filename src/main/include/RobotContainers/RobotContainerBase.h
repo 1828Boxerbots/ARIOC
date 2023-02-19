@@ -10,9 +10,11 @@
 #include "subsystems/DriveSubBase.h"
 #include "subsystems/LoaderSubBase.h"
 #include "subsystems/ShootSubBase.h"
+#include "subsystems/TurretSubBase.h"
 #include "commands/LoadCommand.h"
 #include "commands/DriveCommand.h"
 #include "commands/ShootCommand.h"
+#include "commands/TurretCommand.h"
 
 /**
  * This class is where the bulk of the robot should be declared.  Since
@@ -46,6 +48,7 @@ class RobotContainerBase
   DriveSubBase *m_pDriveSub = nullptr;
   LoaderSubBase *m_pLoadSub = nullptr;
   ShootSubBase *m_pShootSub = nullptr;
+  TurretSubBase *m_pTurretSub = nullptr;
 
   // Commands all Robots have 
   DriveCommand *m_pDriveCMD = nullptr;
@@ -54,14 +57,19 @@ class RobotContainerBase
   LoadCommand *m_pLoadLowerCMD = nullptr;
   LoadCommand *m_pLoadUpperCMD = nullptr;
   ShootCommand *m_pShootCMD = nullptr;
+  TurretCommand *m_pTurretCMD = nullptr;
 
  protected:
   virtual void ConfigureButtonBindings();
 
+  // **************************************************************************
+  // WARNING: frc2::Button is deprecated, as of 2023
+  // **************************************************************************
   frc2::Button m_aButton {[this] {return m_controllerOne.GetAButton();}};
   frc2::Button m_bButton {[this] {return m_controllerOne.GetBButton();}};
   frc2::Button m_xButton {[this] {return m_controllerOne.GetXButton();}};
   frc2::Button m_yButton {[this] {return m_controllerOne.GetYButton();}};
 
   frc2::Button m_rightTrigger {[this] {return m_controllerOne.GetRightTriggerAxis();}};
+  frc2::Button m_leftTrigger {[this] {return m_controllerOne.GetLeftTriggerAxis();}};
 };
