@@ -11,14 +11,16 @@ void ShootSubKurgan::Periodic() {}
 
 void ShootSubKurgan::Init()
 {
+    //m_oneLeft.SetInverted(true);
+    //m_threeLeft.SetInverted(true);
     //m_twoRight.SetInverted(true);
-    //m_fourRight.SetInverted(true);
+    m_fourRight.SetInverted(true);
 }
 
 void ShootSubKurgan::ShootMotor(double speed)
 {
     m_oneLeft.Set(speed);
-    //m_threeLeft.Set(speed);
-    //m_twoRight.Set(speed);
-    //m_fourRight.Set(speed);
+    m_threeLeft.Set(speed);
+    m_twoRight.Set(speed);
+    m_fourRight.Set(speed);
 }
