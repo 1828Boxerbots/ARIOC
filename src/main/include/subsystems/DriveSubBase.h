@@ -48,6 +48,11 @@ class DriveSubBase : public frc2::SubsystemBase
   // IMU
   virtual double GetIMUAngle() { return 0; }
 
+  virtual double GetEncoderL() { return 0.0; }
+  virtual double GetEncoderR() { return 0.0; }
+  virtual double GetEncoderRawL() { return 0.0; }
+  virtual double GetEncoderRawR() { return 0.0; }
+
  private:
 
  protected:

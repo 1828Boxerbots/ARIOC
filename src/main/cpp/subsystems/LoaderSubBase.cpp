@@ -7,7 +7,11 @@
 LoaderSubBase::LoaderSubBase() = default;
 
 // This method will be called once per scheduler run
-void LoaderSubBase::Periodic() {}
+void LoaderSubBase::Periodic()
+{ 
+    static int heartbeat = 0;
+    Util::Log("Heartbeat", heartbeat++, "LoaderSubBase");
+}
 
 void LoaderSubBase::Load(double speed, LoadMotors motor)
 {

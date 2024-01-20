@@ -3,11 +3,16 @@
 // the WPILib BSD license file in the root directory of this project.
 
 #include "subsystems/ArmSubBase.h"
+#include "Util.h"
 
 ArmSubBase::ArmSubBase() = default;
 
 // This method will be called once per scheduler run
-void ArmSubBase::Periodic() {}
+void ArmSubBase::Periodic() 
+{
+    static int heartbeat = 0;
+    Util::Log("Heartbeat", heartbeat++, "ArmSubBase");
+}
 
 void ArmSubBase::MoveArm(double speed)
 {

@@ -6,7 +6,17 @@
 
 DriveSubBase::DriveSubBase() = default;
 
-void DriveSubBase::Periodic() { }
+void DriveSubBase::Periodic() 
+{ 
+    static int heartbeat = 0;
+    Util::Log("Heartbeat", heartbeat++, "DriveSubBase");
+
+    Util::Log("RobotAngle", GetRobotAngle(), "DriveSubBase");
+    Util::Log("EncoderL", GetEncoderL(), "DriveSubBase");
+    Util::Log("EncoderR", GetEncoderR(), "DriveSubBase");
+    Util::Log("EncoderL-Raw", GetEncoderRawL(), "DriveSubBase");
+    Util::Log("EncoderR-Raw", GetEncoderRawR(), "DriveSubBase");
+}
 
 double DriveSubBase::GetRobotAngle()
 {
@@ -52,9 +62,9 @@ void DriveSubBase::MoveMecanum(double angle, double pivot, double power)
     bottomLeft = power * moveSin/moveMax + pivot;
     bottomRight = power * moveCos/moveMax - pivot;
 
-    Util::Log("topLeft", topLeft);
-    Util::Log("bottomRight", bottomRight);
-    Util::Log("topRight", topRight);
+    Util::Log("topLeft", topLeft, "DriveSubBase");
+    Util::Log("bottomRight", bottomRight, "DriveSubBase");
+    Util::Log("topRight", topRight, "DriveSubBase");
 
     // Limiting Power so it does not go above one
     // if((power + fabs(pivot)) > 1)

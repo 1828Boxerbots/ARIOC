@@ -3,12 +3,15 @@
 // the WPILib BSD license file in the root directory of this project.
 
 #include "subsystems/ShootSubBase.h"
+#include "Util.h"
 
 ShootSubBase::ShootSubBase() = default;
 
 // This method will be called once per scheduler run
-    void ShootSubBase::Periodic() 
+void ShootSubBase::Periodic() 
 {
+    static int heartbeat = 0;
+    Util::Log("Heartbeat", heartbeat++, "ShootSubBase");
 }
 
 void ShootSubBase::Shoot(double speed)

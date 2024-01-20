@@ -38,6 +38,11 @@ constexpr int PWM_LOWERINNER_C418 = 4;
 constexpr int PWM_INTAKE_C418 = 5;
 constexpr int PWM_UPPERINNER_C418 = 6;
 
+constexpr int DIO_ENCODER_A_RIGHT_C418 = 0;
+constexpr int DIO_ENCODER_B_RIGHT_C418 = 1;
+constexpr int DIO_ENCODER_A_LEFT_C418 = 2;
+constexpr int DIO_ENCODER_B_LEFT_C418 = 3;
+
 //Rocky:
 constexpr int PWM_RIGHTDRIVE_ROCKY = 3;
 constexpr int PWM_LEFTDRIVE_ROCKY = 2;
