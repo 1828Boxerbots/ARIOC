@@ -17,14 +17,6 @@ class RobotContainerRocky : public RobotContainerBase
 
   void Init() override;
 
-  void SetAButton() override;
-  void SetBButton() override;
-  void SetXButton() override;
-  void SetYButton() override;
-  
-  void SetRightTrigger() override;
-  void SetLeftTrigger() override;
-
  private:
   void ConfigureButtonBindings() override;
 };

@@ -7,15 +7,12 @@
 RobotContainerLipALoop::RobotContainerLipALoop()
 {
     m_pDriveSub = new DriveSubLipALoop;
-
-    m_pDriveCMD = new DriveCommand(m_pDriveSub, &m_controllerOne, DriveSubBase::MECANUM_STYLE, 0.4);
 }
 
 void RobotContainerLipALoop::Init()
 {
     m_pDriveSub->Init();
-
-    m_pDriveSub->SetDefaultCommand(*m_pDriveCMD);
+    m_pDriveSub->SetDefaultCommand(DriveCommand(m_pDriveSub, &m_driverController, DriveSubBase::MECANUM_STYLE, 0.4).ToPtr()); // m_pDriveCMD
 }
 
 void RobotContainerLipALoop::ConfigureButtonBindings()

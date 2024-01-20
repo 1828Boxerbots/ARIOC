@@ -4,7 +4,7 @@
 
 #pragma once
 
-#include <frc2/command/CommandBase.h>
+#include <frc2/command/Command.h>
 #include <frc2/command/CommandHelper.h>
 #include <frc/XboxController.h>
 #include "subsystems/LoaderSubBase.h"
@@ -16,7 +16,7 @@
  * directly; this is crucially important, or else the decorator functions in
  * Command will *not* work!
  */
-class LoadCommand : public frc2::CommandHelper<frc2::CommandBase, LoadCommand>
+class LoadCommand : public frc2::CommandHelper<frc2::Command, LoadCommand>
 {
  public:
   LoadCommand(LoaderSubBase *pLoader, frc::XboxController *pController, double speed = 1.0,

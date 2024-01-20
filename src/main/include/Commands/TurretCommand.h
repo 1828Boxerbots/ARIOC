@@ -4,7 +4,7 @@
 
 #pragma once
 
-#include <frc2/command/CommandBase.h>
+#include <frc2/command/Command.h>
 #include <frc2/command/CommandHelper.h>
 #include <frc/XBoxController.h>
 #include "subsystems/TurretSubBase.h"
@@ -17,7 +17,7 @@
  * Command will *not* work!
  */
 class TurretCommand
-    : public frc2::CommandHelper<frc2::CommandBase, TurretCommand> 
+    : public frc2::CommandHelper<frc2::Command, TurretCommand> 
 {
  public:
   TurretCommand(TurretSubBase *pTurretSub, frc::XboxController *pController, double scale =  1.0);

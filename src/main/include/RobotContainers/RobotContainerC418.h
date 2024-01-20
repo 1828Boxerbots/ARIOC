@@ -15,13 +15,6 @@ class RobotContainerC418 : public RobotContainerBase
 
   void Init() override;
 
-  void SetAButton() override;
-  void SetBButton() override;
-  void SetXButton() override;
-  void SetYButton() override;
-  
-  void SetRightTrigger() override;
+  virtual void ConfigureButtonBindings() override;
 
-  private:
-  void ConfigureButtonBindings() override;
 };

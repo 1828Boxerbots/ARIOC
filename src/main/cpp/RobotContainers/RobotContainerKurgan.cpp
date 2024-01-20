@@ -11,11 +11,6 @@ RobotContainerKurgan::RobotContainerKurgan()
     m_pLoadSub = new LoaderSubKurgan;
     m_pShootSub = new ShootSubKurgan;
 
-    // Commands
-    m_pDriveCMD = new DriveCommand(m_pDriveSub, &m_controllerOne, DriveSubBase::RC_STYLE, 0.5);
-    m_pLoadIntakeCMD = new LoadCommand(m_pLoadSub, &m_controllerOne, 1.0, LoaderSubBase::intake);
-    m_pEjectCMD = new LoadCommand(m_pLoadSub, &m_controllerOne, -1.0, LoaderSubBase::intake);
-    m_pShootCMD = new ShootCommand(m_pShootSub, &m_controllerOne);
     ConfigureButtonBindings();
 }
 
@@ -25,30 +20,12 @@ void RobotContainerKurgan::Init()
     m_pLoadSub->Init();
     m_pShootSub->Init();
 
-    m_pDriveSub->SetDefaultCommand(*m_pDriveCMD);
+    m_pDriveSub->SetDefaultCommand(DriveCommand(m_pDriveSub, &m_driverController, DriveSubBase::RC_STYLE, 0.5).ToPtr()); // m_pDriveCMD
 }
 
 void RobotContainerKurgan::ConfigureButtonBindings()
 {
-    SetXButton();
-    SetYButton();
-    SetRightTrigger();
-}
-
-void RobotContainerKurgan::SetXButton()
-{
-    // Eject
-    m_xButton.WhenHeld(m_pEjectCMD);
-}
-
-void RobotContainerKurgan::SetYButton()
-{
-    // Load
-    m_yButton.WhenHeld(m_pLoadIntakeCMD);
-}
-
-void RobotContainerKurgan::SetRightTrigger()
-{
-    // Shoot
-    m_rightTrigger.WhenHeld(m_pShootCMD);
+    m_driverController.X().WhileTrue(LoadCommand(m_pLoadSub, &m_driverController, -1.0, LoaderSubBase::intake).ToPtr()); // m_xButton.WhenHeld(m_pEjectCMD);
+    m_driverController.Y().WhileTrue(LoadCommand(m_pLoadSub, &m_driverController, 1.0, LoaderSubBase::intake).ToPtr()); // m_yButton.WhenHeld(m_pLoadIntakeCMD);
+    m_driverController.RightTrigger().WhileTrue(ShootCommand(m_pShootSub, &m_driverController).ToPtr()); // m_rightTrigger.WhenHeld(m_pShootCMD);
 }

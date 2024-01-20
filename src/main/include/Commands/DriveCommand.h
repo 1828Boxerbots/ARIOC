@@ -4,7 +4,7 @@
 
 #pragma once
 
-#include <frc2/command/CommandBase.h>
+#include <frc2/command/Command.h>
 #include <frc2/command/CommandHelper.h>
 #include "subsystems/DriveSubBase.h"
 #include <frc/XboxController.h>
@@ -16,7 +16,7 @@
  * directly; this is crucially important, or else the decorator functions in
  * Command will *not* work!
  */
-class DriveCommand : public frc2::CommandHelper<frc2::CommandBase, DriveCommand> 
+class DriveCommand : public frc2::CommandHelper<frc2::Command, DriveCommand> 
 {
  public:
   DriveCommand(DriveSubBase *pDriveSub, frc::XboxController *pController, DriveSubBase::DriveStyles style, double scale = 1.0, double deadZone = 0.1);

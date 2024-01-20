@@ -4,8 +4,8 @@
 
 #pragma once
 #include <frc2/command/Command.h>
-#include <frc/XboxController.h>
-#include <frc2/command/button/Button.h>
+#include <frc2/command/button/CommandXboxController.h>
+//#include <frc2/command/button/button.h> // no such file or directory in 2024
 #include "Constants.h"
 #include "subsystems/DriveSubBase.h"
 #include "subsystems/LoaderSubBase.h"
@@ -30,19 +30,9 @@ class RobotContainerBase
 
   virtual void Init() = 0;
 
-  virtual void SetAButton() {};
-  virtual void SetBButton() {};
-  virtual void SetXButton() {};
-  virtual void SetYButton() {};
-  virtual void SetStartButton() {};
-  virtual void SetBackButton() {};
-  virtual void SetLeftBumper() {};
-  virtual void SetRightBumper() {};
-  virtual void SetLeftTrigger() {};
-  virtual void SetRightTrigger() {};
-
-  frc::XboxController m_controllerOne {0};
-  frc::XboxController m_controllerTwo {1};
+  // Replace with CommandPS4Controller or CommandJoystick if needed
+  frc2::CommandXboxController m_driverController{0};
+  frc2::CommandXboxController m_driverController2{1};
 
   // Subsystems
   DriveSubBase *m_pDriveSub = nullptr;
@@ -50,26 +40,7 @@ class RobotContainerBase
   ShootSubBase *m_pShootSub = nullptr;
   TurretSubBase *m_pTurretSub = nullptr;
 
-  // Commands all Robots have 
-  DriveCommand *m_pDriveCMD = nullptr;
-  LoadCommand *m_pLoadAllCMD = nullptr;
-  LoadCommand *m_pLoadIntakeCMD = nullptr;
-  LoadCommand *m_pLoadLowerCMD = nullptr;
-  LoadCommand *m_pLoadUpperCMD = nullptr;
-  ShootCommand *m_pShootCMD = nullptr;
-  TurretCommand *m_pTurretCMD = nullptr;
-
  protected:
   virtual void ConfigureButtonBindings();
 
-  // **************************************************************************
-  // WARNING: frc2::Button is deprecated, as of 2023
-  // **************************************************************************
-  frc2::Button m_aButton {[this] {return m_controllerOne.GetAButton();}};
-  frc2::Button m_bButton {[this] {return m_controllerOne.GetBButton();}};
-  frc2::Button m_xButton {[this] {return m_controllerOne.GetXButton();}};
-  frc2::Button m_yButton {[this] {return m_controllerOne.GetYButton();}};
-
-  frc2::Button m_rightTrigger {[this] {return m_controllerOne.GetRightTriggerAxis();}};
-  frc2::Button m_leftTrigger {[this] {return m_controllerOne.GetLeftTriggerAxis();}};
 };
