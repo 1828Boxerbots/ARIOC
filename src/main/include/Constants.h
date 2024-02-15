@@ -3,7 +3,6 @@
 // the WPILib BSD license file in the root directory of this project.
 
 #pragma once
-#include "RobotContainers/RobotContainerBase.h"
 
 /**
  * The Constants header provides a convenient place for teams to hold robot-wide
@@ -78,3 +77,6 @@ constexpr int PWM_TOPLEFTDRIVE_LIPALOOP     = 1;
 constexpr int PWM_TOPRIGHTDRIVE_LIPALOOP    = 0;
 constexpr int PWM_BOTTOMLEFTDRIVE_LIPALOOP  = 4;
 constexpr int PWM_BOTTOMRIGHTDRIVE_LIPALOOP = 3;
+
+constexpr int USB_CONTROLLER = 0;
+constexpr int USB_CONTROLLER2 = 1;

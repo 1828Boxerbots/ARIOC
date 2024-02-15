@@ -31,8 +31,8 @@ class RobotContainerBase
   virtual void Init() = 0;
 
   // Replace with CommandPS4Controller or CommandJoystick if needed
-  frc2::CommandXboxController m_driverController{0};
-  frc2::CommandXboxController m_driverController2{1};
+  frc2::CommandXboxController m_driverController{USB_CONTROLLER};
+  frc2::CommandXboxController m_driverController2{USB_CONTROLLER2};
 
   // Subsystems
   DriveSubBase *m_pDriveSub = nullptr;
