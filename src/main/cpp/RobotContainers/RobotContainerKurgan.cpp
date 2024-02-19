@@ -20,7 +20,7 @@ void RobotContainerKurgan::Init()
     m_pLoadSub->Init();
     m_pShootSub->Init();
 
-    m_pDriveSub->SetDefaultCommand(DriveCommand(m_pDriveSub, &m_driverController, DriveSubBase::RC_STYLE, 0.5).ToPtr()); // m_pDriveCMD
+    m_pDriveSub->SetDefaultCommand(DriveCommand(m_pDriveSub, &m_driverController, DriveSubBase::RC_STYLE, 1.0).ToPtr()); // m_pDriveCMD
 }
 
 void RobotContainerKurgan::ConfigureButtonBindings()

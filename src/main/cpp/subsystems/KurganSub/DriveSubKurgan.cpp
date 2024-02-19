@@ -17,6 +17,11 @@ void DriveSubKurgan::Init()
 
 void DriveSubKurgan::LeftMotor(double speed)
 {
+    // note: slow down left motor, since right motor is reversed (so it moves slower)
+    if (speed > 0.0)
+    {
+        speed = speed * 0.75;
+    }
     m_leftMotorOne.Set(speed);
     m_leftMotorTwo.Set(speed);
 }
