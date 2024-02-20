@@ -40,7 +40,9 @@ class RobotContainerBase
   ShootSubBase *m_pShootSub = nullptr;
   TurretSubBase *m_pTurretSub = nullptr;
 
+  virtual frc2::Command* GetAutonomousCommand() { return nullptr; }
+
  protected:
-  virtual void ConfigureButtonBindings();
+  virtual void ConfigureButtonBindings() { }
 
 };

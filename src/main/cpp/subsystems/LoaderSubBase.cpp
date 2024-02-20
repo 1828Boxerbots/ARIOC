@@ -36,3 +36,9 @@ void LoaderSubBase::Load(double speed, LoadMotors motor)
         break;
     }
 }
+
+frc2::CommandPtr LoaderSubBase::SetLoaderSpeed(double speed)
+{
+    m_speed = speed;
+    return RunOnce([this] { LoadAtSpeed(); });
+}

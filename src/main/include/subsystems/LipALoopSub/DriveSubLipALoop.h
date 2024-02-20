@@ -29,6 +29,7 @@ class DriveSubLipALoop : public DriveSubBase
   void BottomLeftMotor(double speed) override;
   void BottomRightMotor(double speed) override;
 
+  virtual bool IsImuAvailable() override { return true; }
   double GetIMUAngle() override;
 
  private:

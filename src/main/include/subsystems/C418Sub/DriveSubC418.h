@@ -21,6 +21,7 @@ class DriveSubC418 : public DriveSubBase
   void LeftMotor(double speed) override;
   void RightMotor(double speed) override;
 
+  virtual bool IsEncodersAvailable() override { return true; }
   virtual double GetEncoderL() override;
   virtual double GetEncoderR() override;
   virtual double GetEncoderRawL() override;

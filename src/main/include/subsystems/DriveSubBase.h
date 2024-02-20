@@ -29,6 +29,7 @@ class DriveSubBase : public frc2::SubsystemBase
 
   virtual void Init() = 0;
 
+
   void MoveTank(double left, double right);
   void MoveArcade(double x, double y);
   void MoveMecanum(double angle, double pivot, double power);
@@ -46,8 +47,10 @@ class DriveSubBase : public frc2::SubsystemBase
   virtual void BottomRightMotor(double speed) {}
 
   // IMU
+  virtual bool IsImuAvailable() { return false; }
   virtual double GetIMUAngle() { return 0; }
 
+  virtual bool IsEncodersAvailable() { return false; }
   virtual double GetEncoderL() { return 0.0; }
   virtual double GetEncoderR() { return 0.0; }
   virtual double GetEncoderRawL() { return 0.0; }

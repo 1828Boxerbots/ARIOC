@@ -16,5 +16,11 @@ void ShootSubBase::Periodic()
 
 void ShootSubBase::Shoot(double speed)
 {
- ShootMotor(speed);
+    ShootMotor(speed);
+}
+
+frc2::CommandPtr ShootSubBase::SetShooter(double speed)
+{
+    m_speed = speed;
+    return RunOnce([this] { SetShootSpeed(); });
 }

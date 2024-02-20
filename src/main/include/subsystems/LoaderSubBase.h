@@ -5,6 +5,7 @@
 #pragma once
 
 #include <frc2/command/SubsystemBase.h>
+#include <frc2/command/CommandPtr.h>
 #include "Util.h"
 
 class LoaderSubBase : public frc2::SubsystemBase 
@@ -20,6 +21,9 @@ class LoaderSubBase : public frc2::SubsystemBase
   virtual void LoadLower(double speed) {}
   virtual void LoadUpper(double speed) {}
 
+  virtual bool HasPhotogate() { return false; }
+  virtual bool IsAtPhotogate() { return false; }
+
   /**
    * Will be called periodically whenever the CommandScheduler runs.
    */
@@ -28,4 +32,8 @@ class LoaderSubBase : public frc2::SubsystemBase
  private:
   // Components (e.g. motor controllers and sensors) should generally be
   // declared private and exposed only through public methods.
+
+  double m_speed = 0.0;
+  frc2::CommandPtr SetLoaderSpeed(double speed);
+  void LoadAtSpeed() { Load(m_speed, LoadMotors::all); }
 };

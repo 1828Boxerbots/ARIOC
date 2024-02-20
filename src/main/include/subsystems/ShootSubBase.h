@@ -5,20 +5,23 @@
 #pragma once
 
 #include <frc2/command/SubsystemBase.h>
+#include <frc2/command/CommandPtr.h>
 
 class ShootSubBase : public frc2::SubsystemBase 
 {
- public:
-  ShootSubBase();
-  
-  virtual void Init() = 0;
+    public:
+        ShootSubBase();
 
-  virtual void ShootMotor(double speed) = 0;
+        virtual void Init() = 0;
 
-  void Shoot(double speed);
+        void Shoot(double speed);
 
-  void Periodic() override;
+        void Periodic() override;
 
- private:
-  
+        frc2::CommandPtr SetShooter(double speed);
+
+    private:
+        virtual void ShootMotor(double speed) = 0;
+        void SetShootSpeed() { Shoot(m_speed); }
+        double m_speed = 1.0;
 };
